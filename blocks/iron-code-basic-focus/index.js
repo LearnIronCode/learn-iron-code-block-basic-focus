@@ -92,13 +92,25 @@
 		 * @return {Element}       Element to render.
 		 */
 		save: function( props ) {
-			return el(
-				'p',
-				{},
-				props.attributes.content
-			);
+			return renderFrontEnd( props );
 		}
 	} );
+
+	/**
+	 * Render the block as it will be displayed on the front-end.
+	 *
+	 * @param {Object} [props] Properties passed from the editor.
+	 * @return {Element}       Element to render.
+	 */
+	function renderFrontEnd( props ) {
+		return el(
+			'p',
+			{
+				className: props.className,
+			},
+			props.attributes.content
+		);
+	}
 } )(
 	window.wp
 );
