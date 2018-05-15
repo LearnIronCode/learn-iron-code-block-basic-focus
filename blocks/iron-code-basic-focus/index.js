@@ -59,6 +59,15 @@
 		 * @return {Element}       Element to render.
 		 */
 		edit: function( props ) {
+			if ( false === props.isSelected ) {
+				// This block is NOT selected.
+				// Use the Front-end rendering (i.e. non-editable field).
+				return renderFrontEnd( props );
+			}
+
+			// We now know this block IS selected.
+			// Render the editable field.
+
 			/**
 			 *
 			 * Function to update "content" attribute.
